@@ -42,8 +42,18 @@ namespace Test2
                 Food food = listFrom.SelectedItem as Food;
                 QuantityModel model = new QuantityModel(food);
                 model.ShowDialog();
-                food.Name += "\t\t" + food.Qty;
-                listTo.Items.Add(food); 
+                //check for availability respect to required items
+                int availableCount = new FoodDAO().getAvailableCount(food.FoodId);
+                if(availableCount >= food.Qty)
+                {
+                    food.Name += "\t\t" + food.Qty;
+                    listTo.Items.Add(food); 
+                }
+                else
+                {
+                    MessageBox.Show("THE ITEM NOT AVAILABLE THAT MUCH");
+                }
+                
                 
             }
         }

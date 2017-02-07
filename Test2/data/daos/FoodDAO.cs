@@ -42,7 +42,7 @@ namespace Test2.data.daos
 
         public List<Food> getFoodsOfType(string type)
         {
-            string query = "SELECT `food_id`, `type`, `name`, `price` FROM foods WHERE type = (SELECT type_id FROM food_types WHERE type = @type)";
+            string query = "SELECT `food_id`, `type`, `name`, `price` FROM foods WHERE items_available > 0 AND type = (SELECT type_id FROM food_types WHERE type = @type)";
             MySqlConnection dbConn = null;
             List<Food> foods = new List<Food>();
 
@@ -77,6 +77,37 @@ namespace Test2.data.daos
             }
 
             return foods;
+        }
+
+        public int getAvailableCount(int foodId)
+        {
+            string query = "SELECT items_available FROM FOOD WHERE food_id = @foodId";
+            MySqlConnection dbConn = ConnectionManager.getConnection();
+            int count = 0;
+
+            try
+            {
+                dbConn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, dbConn);
+                cmd.Prepare();
+
+                cmd.Parameters.AddWithValue("@foodId", foodId);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+
+                count = reader.GetInt16(0);
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            finally
+            {
+                dbConn.Close();
+            }
+
+            return count;
         }
     }
 }
