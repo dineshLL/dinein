@@ -81,7 +81,7 @@ namespace Test2.data.daos
 
         public int getAvailableCount(int foodId)
         {
-            string query = "SELECT items_available FROM FOOD WHERE food_id = @foodId";
+            string query = "SELECT items_available FROM FOODS WHERE food_id = @foodId";
             MySqlConnection dbConn = ConnectionManager.getConnection();
             int count = 0;
 
