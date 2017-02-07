@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2017 at 06:03 AM
+-- Generation Time: Feb 07, 2017 at 06:18 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -40,9 +40,9 @@ CREATE TABLE `foods` (
 
 INSERT INTO `foods` (`food_id`, `type`, `name`, `price`, `items_available`) VALUES
 (1, 1, 'Test', 10, 19),
-(2, 2, 'THIS IS THE FOOD', 0, 9),
-(3, 3, 'test 3', 0, -1),
-(4, 3, 'test 4', 0, -1);
+(2, 2, 'THIS IS THE FOOD', 0, 10),
+(3, 3, 'test 3', 0, 30),
+(4, 3, 'test 4', 0, 20);
 
 -- --------------------------------------------------------
 
@@ -84,9 +84,9 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`order_id`, `order_type`, `customer_name`, `state`, `time_stamp`) VALUES
 (14, 'In house dinning', 'Dinesh', 'PENDING', '2017-02-06 14:44:03'),
-(15, 'In house dinning', 'Dinesh', 'KM_APPROVED', '2017-02-06 14:44:30'),
-(16, 'In house dinning', 'resga', 'PENDING', '2017-02-06 14:45:40'),
-(17, 'In house dinning', 'asd', 'PENDING', '2017-02-06 14:46:21'),
+(15, 'In house dinning', 'Dinesh', 'CA_PENDING', '2017-02-06 14:44:30'),
+(16, 'In house dinning', 'resga', 'CA_PENDING', '2017-02-06 16:45:40'),
+(17, 'In house dinning', 'asd', 'CA_PENDING', '2017-02-06 14:46:21'),
 (18, 'In house dinning', 'a', 'KM_APPROVED', '2017-02-06 14:48:21'),
 (19, 'In house dinning', 'asda', 'KM_REJECTED', '2017-02-06 14:50:51'),
 (20, 'In house dinning', 'asf', 'PENDING', '2017-02-06 14:53:50');
@@ -173,7 +173,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `name`, `user_name`, `pwd`, `role`) VALUES
-(1, 'Dinesh Liyanage', 'a', 'a', 'KM');
+(1, 'kitchen manager', 'a', 'a', 'KM'),
+(2, 'cashier', 'b', 'b', 'CA');
 
 --
 -- Indexes for dumped tables
@@ -229,12 +230,12 @@ ALTER TABLE `food_types`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --

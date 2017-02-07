@@ -43,7 +43,7 @@ namespace Test2
                                 this.Close();
                                 break;
                             }
-                        case "CASHIER":
+                        case "CA":
                             {
                                 if (!Home.Instance.Controls.ContainsKey("CashierView"))
                                 {

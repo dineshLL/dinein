@@ -62,7 +62,7 @@ namespace Test2
 
         private void btnAccecpt_Click(object sender, EventArgs e)
         {
-            if(new OrderDAO().changeOrderStateTo("KM_APPROVED", this.currentOrder))
+            if(new OrderDAO().changeOrderStateTo("CA_PENDING", this.currentOrder))
             {
                 loadPendingOrders();
                 MessageBox.Show("ORDER APPROVED...!!!");
