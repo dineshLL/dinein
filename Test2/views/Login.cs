@@ -1,5 +1,6 @@
 ﻿using Dinein.controllers;
 using Dinein.models;
+using Dinein.views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,6 +54,20 @@ namespace Test2
                                 }
 
                                 Home.Instance.RootContainer.Controls["CashierView"].BringToFront();
+                                Home.Instance.BtnBack.Visible = true;
+                                this.Close();
+                                break;
+                            }
+                        case "MA":
+                            {
+                                if (!Home.Instance.Controls.ContainsKey("ManagerView"))
+                                {
+                                    ManagerView view = new ManagerView();
+                                    view.Dock = DockStyle.Fill;
+                                    Home.Instance.RootContainer.Controls.Add(view);
+                                }
+
+                                Home.Instance.RootContainer.Controls["ManagerView"].BringToFront();
                                 Home.Instance.BtnBack.Visible = true;
                                 this.Close();
                                 break;

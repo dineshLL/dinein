@@ -101,6 +101,7 @@
             this.metroTile4.Size = new System.Drawing.Size(115, 100);
             this.metroTile4.TabIndex = 6;
             this.metroTile4.Text = "Report Issues";
+            this.metroTile4.Click += new System.EventHandler(this.metroTile4_Click);
             // 
             // MainMenu
             // 

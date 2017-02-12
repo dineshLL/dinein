@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2017 at 06:18 PM
+-- Generation Time: Feb 12, 2017 at 04:13 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -174,7 +174,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `name`, `user_name`, `pwd`, `role`) VALUES
 (1, 'kitchen manager', 'a', 'a', 'KM'),
-(2, 'cashier', 'b', 'b', 'CA');
+(2, 'cashier', 'b', 'b', 'CA'),
+(3, 'manager', 'm', 'm', 'MA');
 
 --
 -- Indexes for dumped tables
@@ -235,7 +236,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
